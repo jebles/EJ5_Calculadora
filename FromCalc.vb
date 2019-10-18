@@ -1,21 +1,21 @@
 ﻿Public Class FromCalc
-
-    Dim Operando1 As String
+    Dim MemoriaTotal() As Memoria
+    'Dim Operando1 As String 'para encadenar mas operaciones de 2 cambiar para usar un el array memoria.operandos()
     Dim Operador As Char
-    Dim Operando2 As String
+    'Dim Operando2 As String
     Dim Resultado As Double
-    Dim modoConcat As Boolean
-    Dim Operando1Activo As Boolean 'si es false, el activo es el Operando2
+    'Dim modoConcat As Boolean ' si true, operando1 activo, si false
+
+    Dim signum As Boolean
 
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
-        If modoConcat Then
-            If Operando1Activo Then
-                Operando1 = concat(7)
-            Else
-                Operando2 = concat(7)
-            End If
-        End If
+
+
+        ' Operando1 = concat(7)
+
+
+
     End Sub
     Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
 
@@ -60,8 +60,12 @@
     Private Sub BtnC_Click(sender As Object, e As EventArgs) Handles BtnC.Click
         TxRes.Text = 0
         resetMemorias()
+        signum = True
     End Sub
     Private Sub BtnSignum_Click(sender As Object, e As EventArgs) Handles BtnSignum.Click
+        If signum = True Then
+            'Operando1.Prepend("-")
+        End If
 
     End Sub
     Private Sub BtnOnOff_Click(sender As Object, e As EventArgs) Handles BtnOnOff.Click
@@ -81,33 +85,34 @@
         Return TxRes.Text
     End Function
     Private Shared Sub resetMemorias()
-        For Each mem In Resultados
+        For Each mem In MemoriaTotal
             mem.rdo = 0
+            Erase mem.operandos
         Next
-        OperandoActivo.uno
     End Sub
     Private Sub FromCalc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Resultados(0) = New Memoria
+        MemoriaTotal(0) = New Memoria
+        signum = True
     End Sub
     'OPERADORES
     Private Sub BtnDiv_Click(sender As Object, e As EventArgs) Handles BtnDiv.Click
-        modoConcat = False
+
     End Sub
 
     Private Sub BtnMulti_Click(sender As Object, e As EventArgs) Handles BtnMulti.Click
-        modoConcat = False
+
     End Sub
 
     Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
-        modoConcat = False
+
     End Sub
 
-    Private Sub Button16_Click(sender As Object, e As EventArgs) Handles Button16.Click
-        modoConcat = False
+    Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
+
     End Sub
 
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
-        modoConcat = False
+
     End Sub
 
 
