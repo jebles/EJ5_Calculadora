@@ -2,10 +2,34 @@
     Friend mem As New Memoria(0, 0)
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
-        addNum("7")
+        addNum(7)
     End Sub
     Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
-        addNum("8")
+        addNum(8)
+    End Sub
+    Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
+        addNum(9)
+    End Sub
+    Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles Btn4.Click
+        addNum(4)
+    End Sub
+    Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles Btn5.Click
+        addNum(5)
+    End Sub
+    Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles Btn6.Click
+        addNum(6)
+    End Sub
+    Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
+        addNum(1)
+    End Sub
+    Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles Btn2.Click
+        addNum(2)
+    End Sub
+    Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles Btn3.Click
+        addNum(3)
+    End Sub
+    Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
+        addNum(0)
     End Sub
 
     'BOTONES ESPECIALES
@@ -36,14 +60,13 @@
 
 
     'METODOS AUXILIARES
-    Private Sub addNum(n As Double)
-        mem.operando(mem.opActivo) += n
+    Private Sub addNum(n As Int16)
+        Dim op As String = mem.operando(mem.opActivo).ToString
+        Dim str As String = op + n.ToString
+        mem.operando(mem.opActivo) = str
         TxRes.Text = mem.operando(mem.opActivo)
     End Sub
 
-    Private Sub clearScr()
-        TxRes.Text = "0"
-    End Sub
     Public Sub FromCalc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         BtnC.Focus()
     End Sub
@@ -57,19 +80,28 @@
 
     End Sub
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
-        If mem.opActivo = 0 Then
-            mem.rdo += mem.operando(0)
-            mem.operando(0) = 0
-            mem.opActivo = 1
-        ElseIf mem.opActivo = 1 Then
-            mem.rdo += mem.operando(1)
-            mem.operando(1) = 0
-            mem.opActivo = 0
-        End If
-        TxRes.Text = mem.rdo
+        'If mem.opActivo = 0 Then
+        '    mem.rdo += mem.operando(0)
+        '    mem.operando(0) = 0
+        '    mem.opActivo = 1
+        'ElseIf mem.opActivo = 1 Then
+        '    mem.rdo += mem.operando(1)
+        '    mem.operando(1) = 0
+        '    mem.opActivo = 0
+        'End If
+        mem.rdo += mem.operando(mem.opActivo)
+        CambioOPA()
+        'TxRes.Text = mem.rdo
     End Sub
     Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
 
+    End Sub
+    Private Sub CambioOPA()
+        If mem.opActivo = 0 Then
+            mem.opActivo = 1
+        ElseIf mem.opActivo = 1 Then
+            mem.opActivo = 0
+        End If
     End Sub
 
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
@@ -78,4 +110,6 @@
 
         TxRes.Text = mem.rdo
     End Sub
+
+
 End Class
