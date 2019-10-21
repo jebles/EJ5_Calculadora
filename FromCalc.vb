@@ -43,6 +43,8 @@
 
             BtnOn.BackgroundImage = Image.FromFile("C:\Users\j.gamer\Documents\Gdrive\DI\proyectos VB\EJ5_Calculadora\Resources\off.png")
             BtnOn.BackgroundImageLayout = ImageLayout.Zoom
+            reseteo()
+            TxRes.Text = ""
         Else
             TxRes.Enabled = True
             TxRes.BackColor = Color.Gray
@@ -52,6 +54,10 @@
         End If
     End Sub
     Private Sub BtnC_Click(sender As Object, e As EventArgs) Handles BtnC.Click
+        reseteo()
+    End Sub
+
+    Private Sub reseteo()
         mem.rdo = 0
         mem.operando(0) = 0
         mem.operando(1) = 0
@@ -91,7 +97,7 @@
         'End If
         mem.rdo += mem.operando(mem.opActivo)
         CambioOPA()
-        'TxRes.Text = mem.rdo
+        TxRes.Text = mem.rdo
     End Sub
     Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
 
