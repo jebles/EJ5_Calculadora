@@ -1,4 +1,4 @@
-﻿Public Class FromCalc
+﻿Public Class FormCalc
     Friend mem As New Memoria(0, 0)
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
@@ -64,7 +64,6 @@
         TxRes.Text = 0
     End Sub
 
-
     'METODOS AUXILIARES
     Private Sub addNum(n As Int16)
         Dim op As String = mem.operando(mem.opActivo).ToString
@@ -113,9 +112,11 @@
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
         mem.rdo += mem.operando(mem.opActivo)
-
         TxRes.Text = mem.rdo
     End Sub
-
-
+    Public Sub RutasRelativas()
+        Dim quitarDePath As String = "bin\Debug"
+        Dim path As String = My.Application.Info.DirectoryPath.Replace(quitarDePath, "") & "Resources\"
+        'return IO.Path.Combine(path, "nombreArchivo")
+    End Sub
 End Class

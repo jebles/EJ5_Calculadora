@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FromCalc
+Partial Class FormCalc
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,7 +22,7 @@ Partial Class FromCalc
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FromCalc))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCalc))
         Me.TxRes = New System.Windows.Forms.TextBox()
         Me.Btn7 = New System.Windows.Forms.Button()
         Me.Btn8 = New System.Windows.Forms.Button()
@@ -274,9 +274,9 @@ Partial Class FromCalc
         Me.BtnIgual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnIgual.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnIgual.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnIgual.Location = New System.Drawing.Point(149, 288)
+        Me.BtnIgual.Location = New System.Drawing.Point(90, 288)
         Me.BtnIgual.Name = "BtnIgual"
-        Me.BtnIgual.Size = New System.Drawing.Size(102, 46)
+        Me.BtnIgual.Size = New System.Drawing.Size(161, 46)
         Me.BtnIgual.TabIndex = 20
         Me.BtnIgual.Text = "="
         Me.BtnIgual.UseVisualStyleBackColor = True
@@ -287,7 +287,7 @@ Partial Class FromCalc
         Me.BtnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnC.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnC.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnC.Location = New System.Drawing.Point(89, 288)
+        Me.BtnC.Location = New System.Drawing.Point(30, 288)
         Me.BtnC.Name = "BtnC"
         Me.BtnC.Size = New System.Drawing.Size(54, 46)
         Me.BtnC.TabIndex = 18

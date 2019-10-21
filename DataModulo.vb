@@ -12,7 +12,4 @@
         End Sub
     End Class
 
-    Sub New()
-
-    End Sub
 End Module

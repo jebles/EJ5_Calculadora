@@ -73,11 +73,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FromCalc.vb">
+    <Compile Include="FormCalc.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FromCalc.Designer.vb">
-      <DependentUpon>FromCalc.vb</DependentUpon>
+    <Compile Include="FormCalc.Designer.vb">
+      <DependentUpon>FormCalc.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataModulo.vb" />
@@ -98,8 +98,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FromCalc.resx">
-      <DependentUpon>FromCalc.vb</DependentUpon>
+    <EmbeddedResource Include="FormCalc.resx">
+      <DependentUpon>FormCalc.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
