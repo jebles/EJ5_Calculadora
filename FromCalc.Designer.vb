@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FromCalc
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class FromCalc
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FromCalc))
         Me.TxRes = New System.Windows.Forms.TextBox()
         Me.Btn7 = New System.Windows.Forms.Button()
         Me.Btn8 = New System.Windows.Forms.Button()
@@ -38,10 +39,10 @@ Partial Class FromCalc
         Me.BtnSignum = New System.Windows.Forms.Button()
         Me.BtnDec = New System.Windows.Forms.Button()
         Me.Btn0 = New System.Windows.Forms.Button()
-        Me.BtnOnOff = New System.Windows.Forms.Button()
-        Me.Button16 = New System.Windows.Forms.Button()
+        Me.BtnSuma = New System.Windows.Forms.Button()
         Me.BtnIgual = New System.Windows.Forms.Button()
         Me.BtnC = New System.Windows.Forms.Button()
+        Me.BtnOn = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'TxRes
@@ -50,11 +51,12 @@ Partial Class FromCalc
         Me.TxRes.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxRes.ForeColor = System.Drawing.Color.White
         Me.TxRes.Location = New System.Drawing.Point(31, 27)
-        Me.TxRes.Margin = New System.Windows.Forms.Padding(20, 3, 20, 3)
+        Me.TxRes.Margin = New System.Windows.Forms.Padding(2)
         Me.TxRes.Name = "TxRes"
         Me.TxRes.ReadOnly = True
         Me.TxRes.Size = New System.Drawing.Size(222, 38)
         Me.TxRes.TabIndex = 0
+        Me.TxRes.TabStop = False
         Me.TxRes.Text = "0"
         Me.TxRes.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -253,31 +255,18 @@ Partial Class FromCalc
         Me.Btn0.Text = "0"
         Me.Btn0.UseVisualStyleBackColor = True
         '
-        'BtnOnOff
+        'BtnSuma
         '
-        Me.BtnOnOff.FlatAppearance.BorderColor = System.Drawing.Color.Gray
-        Me.BtnOnOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOnOff.Font = New System.Drawing.Font("Arial", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnOnOff.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.BtnOnOff.Location = New System.Drawing.Point(31, 258)
-        Me.BtnOnOff.Name = "BtnOnOff"
-        Me.BtnOnOff.Size = New System.Drawing.Size(54, 46)
-        Me.BtnOnOff.TabIndex = 17
-        Me.BtnOnOff.Text = "On"
-        Me.BtnOnOff.UseVisualStyleBackColor = True
-        '
-        'Button16
-        '
-        Me.Button16.FlatAppearance.BorderColor = System.Drawing.Color.Gray
-        Me.Button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button16.Font = New System.Drawing.Font("Arial", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button16.ForeColor = System.Drawing.SystemColors.ButtonFace
-        Me.Button16.Location = New System.Drawing.Point(198, 207)
-        Me.Button16.Name = "Button16"
-        Me.Button16.Size = New System.Drawing.Size(54, 46)
-        Me.Button16.TabIndex = 16
-        Me.Button16.Text = "+"
-        Me.Button16.UseVisualStyleBackColor = True
+        Me.BtnSuma.FlatAppearance.BorderColor = System.Drawing.Color.Gray
+        Me.BtnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSuma.Font = New System.Drawing.Font("Arial", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSuma.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnSuma.Location = New System.Drawing.Point(198, 207)
+        Me.BtnSuma.Name = "BtnSuma"
+        Me.BtnSuma.Size = New System.Drawing.Size(54, 46)
+        Me.BtnSuma.TabIndex = 16
+        Me.BtnSuma.Text = "+"
+        Me.BtnSuma.UseVisualStyleBackColor = True
         '
         'BtnIgual
         '
@@ -305,16 +294,32 @@ Partial Class FromCalc
         Me.BtnC.Text = "C"
         Me.BtnC.UseVisualStyleBackColor = True
         '
+        'BtnOn
+        '
+        Me.BtnOn.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.BtnOn.BackgroundImage = CType(resources.GetObject("BtnOn.BackgroundImage"), System.Drawing.Image)
+        Me.BtnOn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.BtnOn.FlatAppearance.BorderColor = System.Drawing.Color.Gray
+        Me.BtnOn.FlatAppearance.BorderSize = 0
+        Me.BtnOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOn.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnOn.ForeColor = System.Drawing.SystemColors.ButtonFace
+        Me.BtnOn.Location = New System.Drawing.Point(31, 259)
+        Me.BtnOn.Name = "BtnOn"
+        Me.BtnOn.Size = New System.Drawing.Size(54, 46)
+        Me.BtnOn.TabIndex = 21
+        Me.BtnOn.UseVisualStyleBackColor = False
+        '
         'FromCalc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.ClientSize = New System.Drawing.Size(284, 331)
+        Me.Controls.Add(Me.BtnOn)
         Me.Controls.Add(Me.BtnIgual)
         Me.Controls.Add(Me.BtnC)
-        Me.Controls.Add(Me.BtnOnOff)
-        Me.Controls.Add(Me.Button16)
+        Me.Controls.Add(Me.BtnSuma)
         Me.Controls.Add(Me.BtnSignum)
         Me.Controls.Add(Me.BtnDec)
         Me.Controls.Add(Me.Btn0)
@@ -354,8 +359,8 @@ Partial Class FromCalc
     Friend WithEvents BtnSignum As Button
     Friend WithEvents BtnDec As Button
     Friend WithEvents Btn0 As Button
-    Friend WithEvents BtnOnOff As Button
-    Friend WithEvents Button16 As Button
+    Friend WithEvents BtnSuma As Button
     Friend WithEvents BtnIgual As Button
     Friend WithEvents BtnC As Button
+    Friend WithEvents BtnOn As Button
 End Class
