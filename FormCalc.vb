@@ -1,4 +1,5 @@
 ﻿Public Class FormCalc
+    Dim modoConcat As Boolean
     Friend mem As New Memoria(0, 0)
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
@@ -85,16 +86,9 @@
 
     End Sub
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
-        'If mem.opActivo = 0 Then
-        '    mem.rdo += mem.operando(0)
-        '    mem.operando(0) = 0
-        '    mem.opActivo = 1
-        'ElseIf mem.opActivo = 1 Then
-        '    mem.rdo += mem.operando(1)
-        '    mem.operando(1) = 0
-        '    mem.opActivo = 0
-        'End If
+        Dim cont As Integer = 0
         mem.rdo += mem.operando(mem.opActivo)
+        cont += 1
         CambioOPA()
         TxRes.Text = mem.rdo
     End Sub
