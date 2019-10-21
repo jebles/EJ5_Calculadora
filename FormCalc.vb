@@ -41,7 +41,7 @@
 
             TxRes.BackColor = Color.Black
 
-            BtnOn.BackgroundImage = Image.FromFile("C:\Users\j.gamer\Documents\Gdrive\DI\proyectos VB\EJ5_Calculadora\Resources\off.png")
+            BtnOn.BackgroundImage = Image.FromFile(RutaRelativaA("off.png"))
             BtnOn.BackgroundImageLayout = ImageLayout.Zoom
             reseteo()
             TxRes.Text = ""
@@ -49,7 +49,7 @@
             TxRes.Enabled = True
             TxRes.BackColor = Color.Gray
             TxRes.Text = 0
-            BtnOn.BackgroundImage = Image.FromFile("C:\Users\j.gamer\Documents\Gdrive\DI\proyectos VB\EJ5_Calculadora\Resources\on.png")
+            BtnOn.BackgroundImage = Image.FromFile(RutaRelativaA("on.png"))
             BtnOn.BackgroundImageLayout = ImageLayout.Zoom
         End If
     End Sub
@@ -114,9 +114,9 @@
         mem.rdo += mem.operando(mem.opActivo)
         TxRes.Text = mem.rdo
     End Sub
-    Public Sub RutasRelativas()
+    Public Function RutaRelativaA(nom As String)
         Dim quitarDePath As String = "bin\Debug"
         Dim path As String = My.Application.Info.DirectoryPath.Replace(quitarDePath, "") & "Resources\"
-        'return IO.Path.Combine(path, "nombreArchivo")
-    End Sub
+        Return IO.Path.Combine(path, nom)
+    End Function
 End Class
