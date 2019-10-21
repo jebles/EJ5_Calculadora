@@ -27,10 +27,16 @@
             BtnOn.BackgroundImageLayout = ImageLayout.Zoom
         End If
     End Sub
+    Private Sub BtnC_Click(sender As Object, e As EventArgs) Handles BtnC.Click
+        mem.rdo = 0
+        mem.operando(0) = 0
+        mem.operando(1) = 0
+        TxRes.Text = 0
+    End Sub
 
 
     'METODOS AUXILIARES
-    Private Sub addNum(n As Char)
+    Private Sub addNum(n As Double)
         mem.operando(mem.opActivo) += n
         TxRes.Text = mem.operando(mem.opActivo)
     End Sub
@@ -51,15 +57,16 @@
 
     End Sub
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
-        Select Case mem.opActivo
-            Case 0
-                mem.rdo += mem.operando(0)
-                mem.opActivo = 1
-            Case 1
-                mem.rdo += mem.operando(1)
-                mem.opActivo = 0
-        End Select
-
+        If mem.opActivo = 0 Then
+            mem.rdo += mem.operando(0)
+            mem.operando(0) = 0
+            mem.opActivo = 1
+        ElseIf mem.opActivo = 1 Then
+            mem.rdo += mem.operando(1)
+            mem.operando(1) = 0
+            mem.opActivo = 0
+        End If
+        TxRes.Text = mem.rdo
     End Sub
     Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
 
@@ -67,10 +74,8 @@
 
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
+        mem.rdo += mem.operando(mem.opActivo)
+
         TxRes.Text = mem.rdo
     End Sub
-
-
-
-
 End Class
