@@ -80,7 +80,6 @@
       <DependentUpon>FormCalc.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataModulo.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
