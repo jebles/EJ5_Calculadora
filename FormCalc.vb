@@ -1,8 +1,7 @@
 ﻿Public Class FormCalc
-    Dim lastBtnPresIsNum As Boolean
     Dim ultimaoperacion As Char
-    Dim RestaControl As Boolean = False
     Friend mem As New Memoria(0, 0)
+
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
         addNum(7)
@@ -65,7 +64,6 @@
         mem.operando(0) = 0
         mem.operando(1) = 0
         TxRes.Text = 0
-        lastBtnPresIsNum = False
     End Sub
 
     'METODOS AUXILIARES
@@ -81,7 +79,9 @@
         BtnC.Focus()
     End Sub
 
-    'OPERADORES
+    'OPERADORES    
+    Dim contIgual As Integer = 0
+
     Private Sub Operar(ope As Char, Optional eq As Char = "")
 
         Select Case ope
@@ -89,22 +89,35 @@
                 mem.rdo += mem.operando(mem.opActivo)
                 CambioOPA()
                 mem.operando(mem.opActivo) = 0
-                'TxRes.Text = mem.rdo
+
             Case "-"
 
             Case "*"
-                If eq = "=" Then
+
+                If eq = "=" AndAlso contIgual > 0 Then  'multimplicaciones 
+                    Dim aux As Integer = mem.rdo
+                    'MsgBox("repite multi " & mem.rdo & " x " & mem.operando(0))
+                    mem.rdo = aux * mem.operando(1)
+                    CambioOPA()
+                ElseIf eq = "=" Then    'segunda y sucesivas que se da al =
                     mem.rdo = mem.operando(0) * mem.operando(1)
                     CambioOPA()
-                Else
+                    contIgual += 1
+                    ' MsgBox("cont==" & contIgual & " y eq -> " & eq)
+                Else    '
                     mem.rdo = mem.operando(mem.opActivo)
                     CambioOPA()
+                    contIgual = 0
                 End If
 
             Case "/"
                 'mem.rdo /= mem.operando(mem.opActivo)
         End Select
+
+
+
     End Sub
+
     Private Sub BtnDiv_Click(sender As Object, e As EventArgs) Handles BtnDiv.Click
         Operar("/",)
         ultimaoperacion = "/"
@@ -125,16 +138,15 @@
         Operar("-",)
     End Sub
     Private Sub CambioOPA()
-        ' If lastBtnPresIsNum Then
+
         If mem.opActivo = 0 Then
                 mem.opActivo = 1
             ElseIf mem.opActivo = 1 Then
                 mem.opActivo = 0
             End If
-        ' End If
 
     End Sub
-    Dim contIgual As Integer = 0
+    Dim contMulti As Integer = 0
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
         Operar(ultimaoperacion, "=")
