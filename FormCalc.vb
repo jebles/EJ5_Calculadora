@@ -1,5 +1,7 @@
 ﻿Public Class FormCalc
     Dim lastBtnPresIsNum As Boolean
+    Dim ultimaoperacion As Char
+    Dim RestaControl As Boolean = False
     Friend mem As New Memoria(0, 0)
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
@@ -72,7 +74,7 @@
         Dim str As String = op + n.ToString
         mem.operando(mem.opActivo) = str
         TxRes.Text = mem.operando(mem.opActivo)
-        lastBtnPresIsNum = True
+        'lastBtnPresIsNum = True
     End Sub
 
     Public Sub FromCalc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -80,38 +82,64 @@
     End Sub
 
     'OPERADORES
-    Private Sub BtnDiv_Click(sender As Object, e As EventArgs) Handles BtnDiv.Click
+    Private Sub Operar(ope As Char, Optional eq As Char = "")
 
+        Select Case ope
+            Case "+"
+                mem.rdo += mem.operando(mem.opActivo)
+                CambioOPA()
+                mem.operando(mem.opActivo) = 0
+                'TxRes.Text = mem.rdo
+            Case "-"
+
+            Case "*"
+                If eq = "=" Then
+                    mem.rdo = mem.operando(0) * mem.operando(1)
+                    CambioOPA()
+                Else
+                    mem.rdo = mem.operando(mem.opActivo)
+                    CambioOPA()
+                End If
+
+            Case "/"
+                'mem.rdo /= mem.operando(mem.opActivo)
+        End Select
+    End Sub
+    Private Sub BtnDiv_Click(sender As Object, e As EventArgs) Handles BtnDiv.Click
+        Operar("/",)
+        ultimaoperacion = "/"
     End Sub
 
     Private Sub BtnMulti_Click(sender As Object, e As EventArgs) Handles BtnMulti.Click
-
+        Operar("*",)
+        ultimaoperacion = "*"
     End Sub
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
-        mem.rdo += mem.operando(mem.opActivo)
-        mem.operando(mem.opActivo) = 0
-        CambioOPA()
-        TxRes.Text = mem.rdo
+        Operar("+",)
+        ultimaoperacion = "+"
     End Sub
-    Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
 
+
+
+    Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
+        Operar("-",)
     End Sub
     Private Sub CambioOPA()
-        If lastBtnPresIsNum Then
-            If mem.opActivo = 0 Then
+        ' If lastBtnPresIsNum Then
+        If mem.opActivo = 0 Then
                 mem.opActivo = 1
             ElseIf mem.opActivo = 1 Then
                 mem.opActivo = 0
             End If
-        End If
+        ' End If
 
     End Sub
-
+    Dim contIgual As Integer = 0
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
-        mem.rdo += mem.operando(mem.opActivo)
+        Operar(ultimaoperacion, "=")
         TxRes.Text = mem.rdo
-        lastBtnPresIsNum = False
+
 
     End Sub
     Public Function RutaRelativaA(nom As String)
