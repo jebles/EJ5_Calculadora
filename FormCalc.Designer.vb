@@ -310,7 +310,7 @@ Partial Class FormCalc
         Me.BtnOn.TabIndex = 21
         Me.BtnOn.UseVisualStyleBackColor = False
         '
-        'FromCalc
+        'FormCalc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -336,7 +336,7 @@ Partial Class FormCalc
         Me.Controls.Add(Me.Btn8)
         Me.Controls.Add(Me.Btn7)
         Me.Controls.Add(Me.TxRes)
-        Me.Name = "FromCalc"
+        Me.Name = "FormCalc"
         Me.Text = "Calculadora"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -3,35 +3,11 @@
     Friend mem As New Memoria(0, 0)
 
     'NUMERICOS
-    Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
-        addNum(7)
-    End Sub
-    Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles Btn8.Click
-        addNum(8)
-    End Sub
-    Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles Btn9.Click
-        addNum(9)
-    End Sub
-    Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles Btn4.Click
-        addNum(4)
-    End Sub
-    Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles Btn5.Click
-        addNum(5)
-    End Sub
-    Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles Btn6.Click
-        addNum(6)
-    End Sub
-    Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles Btn1.Click
-        addNum(1)
-    End Sub
-    Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles Btn2.Click
-        addNum(2)
-    End Sub
-    Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles Btn3.Click
-        addNum(3)
-    End Sub
-    Private Sub Btn0_Click(sender As Object, e As EventArgs) Handles Btn0.Click
-        addNum(0)
+
+    Private Sub Boton_num(sender As Object, e As EventArgs) Handles Btn8.Click, Btn7.Click, Btn9.Click, Btn6.Click, Btn5.Click, Btn4.Click, Btn3.Click, Btn2.Click, Btn1.Click, Btn0.Click
+        Dim boton As Button
+        boton = CType(sender, Button)
+        addNum(boton.Text)
     End Sub
 
     'BOTONES ESPECIALES
