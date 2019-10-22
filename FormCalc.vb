@@ -1,5 +1,5 @@
 ﻿Public Class FormCalc
-    Dim modoConcat As Boolean
+    Dim lastBtnPresIsNum As Boolean
     Friend mem As New Memoria(0, 0)
     'NUMERICOS
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles Btn7.Click
@@ -63,6 +63,7 @@
         mem.operando(0) = 0
         mem.operando(1) = 0
         TxRes.Text = 0
+        lastBtnPresIsNum = False
     End Sub
 
     'METODOS AUXILIARES
@@ -71,6 +72,7 @@
         Dim str As String = op + n.ToString
         mem.operando(mem.opActivo) = str
         TxRes.Text = mem.operando(mem.opActivo)
+        lastBtnPresIsNum = True
     End Sub
 
     Public Sub FromCalc_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -86,9 +88,8 @@
 
     End Sub
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
-        Dim cont As Integer = 0
         mem.rdo += mem.operando(mem.opActivo)
-        cont += 1
+        mem.operando(mem.opActivo) = 0
         CambioOPA()
         TxRes.Text = mem.rdo
     End Sub
@@ -96,17 +97,22 @@
 
     End Sub
     Private Sub CambioOPA()
-        If mem.opActivo = 0 Then
-            mem.opActivo = 1
-        ElseIf mem.opActivo = 1 Then
-            mem.opActivo = 0
+        If lastBtnPresIsNum Then
+            If mem.opActivo = 0 Then
+                mem.opActivo = 1
+            ElseIf mem.opActivo = 1 Then
+                mem.opActivo = 0
+            End If
         End If
+
     End Sub
 
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
         mem.rdo += mem.operando(mem.opActivo)
         TxRes.Text = mem.rdo
+        lastBtnPresIsNum = False
+
     End Sub
     Public Function RutaRelativaA(nom As String)
         Dim quitarDePath As String = "bin\Debug"
