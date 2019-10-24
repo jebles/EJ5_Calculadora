@@ -4,6 +4,7 @@
     Dim op1 As String
     Dim opActivo As Boolean 'si false: operando 0 está activo, si true: operando 1 activo.
     Dim resultado As Double
+    Dim modoRepetir As Boolean 'activado cuando se entra en modo repetición de la última operacion pulsando = consecutivamente
     Dim signo As Boolean 'false si negativo, true si positivo
 
     'NUMERICOS
@@ -11,10 +12,14 @@
         Dim boton As Button
         boton = CType(sender, Button) 'recoge en un ojeto tipo boton las propiedades de cada boton numerico presionado
 
-        If opActivo Then 'si esta activo el operando 1
-            op1 = AddNum(boton.Text, op1)
-        Else
+        If opActivo = 0 Then 'si esta activo el operando 0
+            ' If op0 = 0 Then
             op0 = AddNum(boton.Text, op0)
+            ' Else
+
+            'End If
+        Else
+            op1 = AddNum(boton.Text, op1)
         End If
 
     End Sub
@@ -35,7 +40,7 @@
         Else
 
             TxRes.Enabled = True
-            TxRes.BackColor = Color.Gray
+            TxRes.BackColor = Color.DarkOliveGreen
             TxRes.Text = 0
             BtnOn.BackgroundImage = Image.FromFile(RutaRelativaA("on.png"))
             BtnOn.BackgroundImageLayout = ImageLayout.Zoom
@@ -83,9 +88,13 @@
     'OPERADORES 
     Private Sub BtnSuma_Click(sender As Object, e As EventArgs) Handles BtnSuma.Click
         ultimaoperacion = "+"
-        If Not opActivo Then 'Activo el primer operando
-            opActivo = True
-        Else 'activo el segundo operando
+        comprobarOrdenOperandosYoperar()
+    End Sub
+
+    Private Sub comprobarOrdenOperandosYoperar()
+        If opActivo = 0 Then 'si está activo el primer operando, activo el segundo para recibir datos
+            opActivo = 1
+        Else 'si está activo el segundo operando, opero
             Operar(op0, op1)
             op0 = Convert.ToDouble(resultado)
             op1 = 0
@@ -95,53 +104,48 @@
 
     Private Sub BtnResta_Click(sender As Object, e As EventArgs) Handles BtnResta.Click
         ultimaoperacion = "-"
-        ' Operar()
+        comprobarOrdenOperandosYoperar()
     End Sub
 
     Private Sub BtnMulti_Click(sender As Object, e As EventArgs) Handles BtnMulti.Click
         ultimaoperacion = "*"
-        'Operar()
+        comprobarOrdenOperandosYoperar()
     End Sub
 
     Private Sub BtnDiv_Click(sender As Object, e As EventArgs) Handles BtnDiv.Click
         ultimaoperacion = "/"
-        'Operar()
+        comprobarOrdenOperandosYoperar()
     End Sub
 
     Dim contIguales As Integer = 0
     Dim aux0 As String
     Dim aux1 As String
+
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
-        '= consecutivo y primero (ops indepes) ok, pte operacione compuestas 3+4=5+2=
-
+        '= consecutivo y primero (ops indepes)
         If contIguales = 0 Then 'primer igual 
             aux0 = op0
             aux1 = op1
-            MsgBox(aux0 & " " & aux1)
+            MsgBox(aux0 & " " & ultimaoperacion & " " & aux1)
             MsgBox("primer igual")
             Operar(op0, op1)
             opActivo = 0
-
+            'si se va a seguir sumando operandos
+            op0 = resultado
+            'si se va a hacer otra operacion op0 = 
+            op1 = 0
+            contIguales += 1
+        ElseIf contIguales = 1 Then '= operaciones consecutivas
+            MsgBox("consecutivos")
+            MsgBox("aux0=" & aux0 & " " & ultimaoperacion & " aux1=" & aux1)
+            aux0 = resultado
             op0 = 0
             op1 = 0
-            'op0 = 0
-            'op1 = 0
-            contIguales += 1
-        Else '= consecutivos
-
-            MsgBox("consecutivos")
-
-
-            MsgBox("aux0=" & aux0 & " aux1=" & aux1 & "op0=" & op0 & "op1=" & op1)
-
-
-            aux0 = resultado
-
-            opActivo = 1
             Operar(aux0, aux1)
-
         End If
+
+
     End Sub
     Public Function RutaRelativaA(nom As String)
         Dim quitarDePath As String = "bin\Debug"
@@ -150,20 +154,6 @@
     End Function
 
     Private Sub BtnSignum_Click(sender As Object, e As EventArgs) Handles BtnSignum.Click
-        'Dim res As String
-        'If signo Then
-        '    If Not opActivo Then
-        '        res = op0.Prepend("-")
-        '    Else
-        '        res = op1.Prepend("-")
-        '    End If
-        'Else
-        '    If Not opActivo Then
-        '        res = op0.Remove(0)
-        '    Else
-        '        res = op1.Remove(0)
-        '    End If
-        'End If
-        'TxRes.Text = res
+
     End Sub
 End Class

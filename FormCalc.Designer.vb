@@ -47,7 +47,7 @@ Partial Class FormCalc
         '
         'TxRes
         '
-        Me.TxRes.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.TxRes.BackColor = System.Drawing.Color.DarkOliveGreen
         Me.TxRes.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TxRes.ForeColor = System.Drawing.Color.White
         Me.TxRes.Location = New System.Drawing.Point(30, 57)
@@ -179,6 +179,7 @@ Partial Class FormCalc
         '
         'BtnDiv
         '
+        Me.BtnDiv.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnDiv.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnDiv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnDiv.Font = New System.Drawing.Font("Consolas", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -188,10 +189,11 @@ Partial Class FormCalc
         Me.BtnDiv.Size = New System.Drawing.Size(54, 46)
         Me.BtnDiv.TabIndex = 10
         Me.BtnDiv.Text = "÷"
-        Me.BtnDiv.UseVisualStyleBackColor = True
+        Me.BtnDiv.UseVisualStyleBackColor = False
         '
         'BtnMulti
         '
+        Me.BtnMulti.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnMulti.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnMulti.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnMulti.Font = New System.Drawing.Font("Arial", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -201,10 +203,11 @@ Partial Class FormCalc
         Me.BtnMulti.Size = New System.Drawing.Size(54, 46)
         Me.BtnMulti.TabIndex = 11
         Me.BtnMulti.Text = "x"
-        Me.BtnMulti.UseVisualStyleBackColor = True
+        Me.BtnMulti.UseVisualStyleBackColor = False
         '
         'BtnResta
         '
+        Me.BtnResta.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnResta.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnResta.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnResta.Font = New System.Drawing.Font("Arial", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -214,10 +217,11 @@ Partial Class FormCalc
         Me.BtnResta.Size = New System.Drawing.Size(54, 46)
         Me.BtnResta.TabIndex = 12
         Me.BtnResta.Text = "—"
-        Me.BtnResta.UseVisualStyleBackColor = True
+        Me.BtnResta.UseVisualStyleBackColor = False
         '
         'BtnSignum
         '
+        Me.BtnSignum.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnSignum.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnSignum.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSignum.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -227,10 +231,11 @@ Partial Class FormCalc
         Me.BtnSignum.Size = New System.Drawing.Size(54, 46)
         Me.BtnSignum.TabIndex = 15
         Me.BtnSignum.Text = "+/-"
-        Me.BtnSignum.UseVisualStyleBackColor = True
+        Me.BtnSignum.UseVisualStyleBackColor = False
         '
         'BtnDec
         '
+        Me.BtnDec.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnDec.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnDec.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnDec.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -240,7 +245,7 @@ Partial Class FormCalc
         Me.BtnDec.Size = New System.Drawing.Size(54, 46)
         Me.BtnDec.TabIndex = 14
         Me.BtnDec.Text = ","
-        Me.BtnDec.UseVisualStyleBackColor = True
+        Me.BtnDec.UseVisualStyleBackColor = False
         '
         'Btn0
         '
@@ -257,6 +262,7 @@ Partial Class FormCalc
         '
         'BtnSuma
         '
+        Me.BtnSuma.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnSuma.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnSuma.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSuma.Font = New System.Drawing.Font("Arial", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -266,10 +272,11 @@ Partial Class FormCalc
         Me.BtnSuma.Size = New System.Drawing.Size(54, 46)
         Me.BtnSuma.TabIndex = 16
         Me.BtnSuma.Text = "+"
-        Me.BtnSuma.UseVisualStyleBackColor = True
+        Me.BtnSuma.UseVisualStyleBackColor = False
         '
         'BtnIgual
         '
+        Me.BtnIgual.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.BtnIgual.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnIgual.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnIgual.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -279,10 +286,11 @@ Partial Class FormCalc
         Me.BtnIgual.Size = New System.Drawing.Size(161, 46)
         Me.BtnIgual.TabIndex = 20
         Me.BtnIgual.Text = "="
-        Me.BtnIgual.UseVisualStyleBackColor = True
+        Me.BtnIgual.UseVisualStyleBackColor = False
         '
         'BtnC
         '
+        Me.BtnC.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.BtnC.FlatAppearance.BorderColor = System.Drawing.Color.Gray
         Me.BtnC.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnC.Font = New System.Drawing.Font("Arial", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -292,7 +300,7 @@ Partial Class FormCalc
         Me.BtnC.Size = New System.Drawing.Size(54, 46)
         Me.BtnC.TabIndex = 18
         Me.BtnC.Text = "C"
-        Me.BtnC.UseVisualStyleBackColor = True
+        Me.BtnC.UseVisualStyleBackColor = False
         '
         'BtnOn
         '
