@@ -43,6 +43,9 @@ Partial Class FormCalc
         Me.BtnIgual = New System.Windows.Forms.Button()
         Me.BtnC = New System.Windows.Forms.Button()
         Me.BtnOn = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'TxRes
@@ -318,12 +321,36 @@ Partial Class FormCalc
         Me.BtnOn.TabIndex = 21
         Me.BtnOn.UseVisualStyleBackColor = False
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(30, 351)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(85, 20)
+        Me.TextBox1.TabIndex = 22
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(138, 351)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(33, 20)
+        Me.TextBox2.TabIndex = 23
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(197, 351)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(85, 20)
+        Me.TextBox3.TabIndex = 24
+        '
         'FormCalc
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.ClientSize = New System.Drawing.Size(285, 371)
+        Me.ClientSize = New System.Drawing.Size(447, 397)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.BtnOn)
         Me.Controls.Add(Me.BtnIgual)
         Me.Controls.Add(Me.BtnC)
@@ -371,4 +398,7 @@ Partial Class FormCalc
     Friend WithEvents BtnIgual As Button
     Friend WithEvents BtnC As Button
     Friend WithEvents BtnOn As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents TextBox3 As TextBox
 End Class
