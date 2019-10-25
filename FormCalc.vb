@@ -2,10 +2,9 @@
     Dim ultimaoperacion As Char
     Dim op0 As String
     Dim op1 As String
+    Dim op2 As String 'aqui se almacena el valor
     Dim opActivo As Boolean 'si false: operando 0 está activo, si true: operando 1 activo.
     Dim resultado As Double
-    Dim modoRepetir As Boolean 'activado cuando se entra en modo repetición de la última operacion pulsando = consecutivamente
-    Dim signo As Boolean 'false si negativo, true si positivo
 
     'NUMERICOS
     Private Sub Boton_num(sender As Object, e As EventArgs) Handles Btn8.Click, Btn7.Click, Btn9.Click, Btn6.Click, Btn5.Click, Btn4.Click, Btn3.Click, Btn2.Click, Btn1.Click, Btn0.Click
@@ -13,11 +12,10 @@
         boton = CType(sender, Button) 'recoge en un ojeto tipo boton las propiedades de cada boton numerico presionado
 
         If opActivo = 0 Then 'si esta activo el operando 0
-            ' If op0 = 0 Then
+            If op0 = resultado Then 'caso especial cuando se pulsa un numero y el operando 0 guarda el resultao para op consecutivas
+                op0 = 0 'lo reinicia para operacion nueva
+            End If
             op0 = AddNum(boton.Text, op0)
-            ' Else
-
-            'End If
         Else
             op1 = AddNum(boton.Text, op1)
         End If
@@ -120,7 +118,7 @@
     Dim contIguales As Integer = 0
     Dim aux0 As String
     Dim aux1 As String
-
+    Dim operacionUnicaFinalizada As Boolean = False
     Private Sub BtnIgual_Click(sender As Object, e As EventArgs) Handles BtnIgual.Click
 
         '= consecutivo y primero (ops indepes)
@@ -136,6 +134,7 @@
             'si se va a hacer otra operacion op0 = 
             op1 = 0
             contIguales += 1
+
         ElseIf contIguales = 1 Then '= operaciones consecutivas
             MsgBox("consecutivos")
             MsgBox("aux0=" & aux0 & " " & ultimaoperacion & " aux1=" & aux1)
@@ -145,7 +144,6 @@
             Operar(aux0, aux1)
         End If
 
-
     End Sub
     Public Function RutaRelativaA(nom As String)
         Dim quitarDePath As String = "bin\Debug"
@@ -154,6 +152,11 @@
     End Function
 
     Private Sub BtnSignum_Click(sender As Object, e As EventArgs) Handles BtnSignum.Click
-
+        TxRes.Text = String.Concat("-", TxRes.Text)
+        If opActivo = 0 Then
+            op0 = String.Concat("-", op0)
+        Else
+            op1 = String.Concat("-", op1)
+        End If
     End Sub
 End Class
